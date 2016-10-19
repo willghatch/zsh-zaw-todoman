@@ -4,12 +4,12 @@ zaw-src-todoman() {
     while read line; do
         candidates+="$line"
     done < <(todo list)
-    actions=(zaw-todoman-done zaw--todoman-edit zaw--todoman-show)
+    actions=(zaw--todoman-done zaw--todoman-edit zaw--todoman-show)
     act_descriptions=("done" "edit" "show")
 }
 
 zaw--todoman-done(){
-    todo done $(echo $1 | awk '{print $1}')
+    todo done "$(echo $1 | awk '{print $1}')"
 }
 
 zaw--todoman-show(){
